@@ -48,14 +48,14 @@ if ($isAdmin) {
     $monthRevenueStmt = $db->prepare(
         "SELECT COALESCE(SUM(total_amount), 0) AS month_revenue
          FROM orders
-         WHERE order_date >= DATE_FORMAT(CURDATE(), '%Y-%m-01')"
+         WHERE order_date >= DATE_TRUNC('month', CURRENT_DATE)"
     );
     $monthRevenueStmt->execute();
 } elseif ($businessId) {
     $monthRevenueStmt = $db->prepare(
         "SELECT COALESCE(SUM(total_amount), 0) AS month_revenue
          FROM orders
-         WHERE order_date >= DATE_FORMAT(CURDATE(), '%Y-%m-01')
+         WHERE order_date >= DATE_TRUNC('month', CURRENT_DATE)
            AND business_id = ?"
     );
     $monthRevenueStmt->execute([$businessId]);
@@ -69,7 +69,7 @@ if ($isAdmin) {
     $trendStmt = $db->prepare(
         "SELECT order_date, COALESCE(SUM(total_amount), 0) AS day_total
          FROM orders
-         WHERE order_date >= DATE_SUB(CURDATE(), INTERVAL 13 DAY)
+         WHERE order_date >= CURRENT_DATE - INTERVAL '13 days'
          GROUP BY order_date
          ORDER BY order_date ASC"
     );
@@ -78,7 +78,7 @@ if ($isAdmin) {
     $trendStmt = $db->prepare(
         "SELECT order_date, COALESCE(SUM(total_amount), 0) AS day_total
          FROM orders
-         WHERE order_date >= DATE_SUB(CURDATE(), INTERVAL 13 DAY)
+         WHERE order_date >= CURRENT_DATE - INTERVAL '13 days'
            AND business_id = ?
          GROUP BY order_date
          ORDER BY order_date ASC"
