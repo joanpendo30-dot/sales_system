@@ -149,4 +149,4 @@ require __DIR__ . '/../../includes/header.php';
     </table>
 </div>
 
-<?php require __DIR__ . '/../../includes/footer.php'; ?>
+<?php require __DIR__ . '/../../includes/footer.php'; ?>s
