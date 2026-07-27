@@ -24,7 +24,7 @@ function loadReport() {
     const to   = toEl.value;
     const biz  = bizEl.value;
 
-    fetch(`/sales-system/auth/api/sales_by_business.php?from=${from}&to=${to}&biz=${biz}`)
+    fetch(`/auth/api/sales_by_business.php?from=${from}&to=${to}&biz=${biz}`)
         .then(res => {
             if (!res.ok) throw new Error('Server returned status ' + res.status);
             return res.json();
