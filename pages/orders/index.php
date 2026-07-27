@@ -22,7 +22,7 @@ if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     }
 
     $db->prepare("DELETE FROM orders WHERE id = ?")->execute([$delId]);
-    header('Location: /sales-system/pages/orders/index.php?deleted=1');
+    header('Location: /pages/orders/index.php?deleted=1');
     exit;
 }
 
@@ -78,7 +78,7 @@ require __DIR__ . '/../../includes/header.php';
                 : 'Orders for your business.' ?>
         </p>
     </div>
-    <a href="/sales-system/pages/orders/create.php" class="btn btn-primary">+ New Order</a>
+    <a href="/pages/orders/create.php" class="btn btn-primary">+ New Order</a>
 </div>
 
 <?php if (isset($_GET['deleted'])): ?>
@@ -124,7 +124,7 @@ require __DIR__ . '/../../includes/header.php';
             </div>
             <?php if ($bizId): ?>
             <div class="col-auto">
-                <a href="/sales-system/pages/orders/index.php"
+                <a href="/pages/orders/index.php"
                    class="btn btn-outline-secondary btn-sm">Clear</a>
             </div>
             <?php endif; ?>
@@ -180,7 +180,7 @@ require __DIR__ . '/../../includes/header.php';
                         </td>
                         <td><?= htmlspecialchars($o['created_by_display']) ?></td>
                         <td class="text-center">
-                            <a href="/sales-system/pages/orders/edit.php?id=<?= (int)$o['id'] ?>"
+                            <a href="/pages/orders/edit.php?id=<?= (int)$o['id'] ?>"
                                class="btn btn-sm btn-outline-primary">Edit</a>
 
                             <?php if ($user['role'] === 'admin'): ?>

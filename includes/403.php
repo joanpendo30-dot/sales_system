@@ -8,13 +8,13 @@
 <head>
     <meta charset="UTF-8">
     <title>403 Forbidden - Sales System</title>
-    <link href="/sales-system/index.css" rel="stylesheet">
+    <link href="/index.css" rel="stylesheet">
 </head>
 <body class="bg-light d-flex align-items-center justify-content-center min-vh-100">
     <div class="box shadow-sm">
         <h1>403</h1>
         <p>You don't have permission to access this page.</p>
-        <a href="/sales-system/index.php">&larr; Back to dashboard</a>
+        <a href="/index.php">&larr; Back to dashboard</a>
     </div>
 </body>
 </html>

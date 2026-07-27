@@ -114,7 +114,7 @@ require __DIR__ . '/../../includes/header.php';
 <script>
     const IS_ADMIN = <?= $user['role'] === 'admin' ? 'true' : 'false' ?>;
 </script>
-<script src="/sales-system/auth/js/reports.js"></script>
+<script src="/auth/js/reports.js"></script>
 <script>
     loadReport();
 </script>

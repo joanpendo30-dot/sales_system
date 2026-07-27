@@ -248,10 +248,10 @@ require __DIR__ . '/../includes/header.php';
                         </div>
                         <h6 class="fw-semibold mb-2 small"><?= htmlspecialchars($b['name']) ?></h6>
                         <?php if ($isAdmin): ?>
-                            <a href="/sales-system/pages/business/view.php?id=<?= (int)$b['id'] ?>"
+                            <a href="/pages/business/view.php?id=<?= (int)$b['id'] ?>"
                                class="btn btn-sm btn-biz w-100 py-1">View Sales →</a>
                         <?php else: ?>
-                            <a href="/sales-system/pages/orders/report.php"
+                            <a href="/pages/orders/report.php"
                                class="btn btn-sm btn-biz w-100 py-1">View Report →</a>
                         <?php endif; ?>
                     </div>
@@ -292,7 +292,7 @@ require __DIR__ . '/../includes/header.php';
                 </tbody>
             </table>
         </div>
-        <a href="/sales-system/pages/stock/index.php" class="btn btn-sm btn-outline-danger mt-2">
+        <a href="/pages/stock/index.php" class="btn btn-sm btn-outline-danger mt-2">
             Manage Stock →
         </a>
     </div>
@@ -441,7 +441,7 @@ require __DIR__ . '/../includes/header.php';
                         </span>
                     </li>
                 </ul>
-                <a href="/sales-system/pages/orders/report.php"
+                <a href="/pages/orders/report.php"
                    class="btn btn-outline-primary btn-sm w-100 mt-2">
                    View Full Report
                 </a>

@@ -36,7 +36,7 @@ function logoutUser(): void {
 
 function requireLogin(): void {
     if (!isLoggedIn()) {
-        header('Location: /sales-system/auth/login.php');
+        header('Location: /auth/login.php');
         exit;
     }
 }                           // ← this closing brace was missing
@@ -62,7 +62,7 @@ function requireRole(array $roles): void {
         die('<div style="font-family:sans-serif;text-align:center;padding:60px">
                 <h2>Access Denied</h2>
                 <p>You do not have permission to view this page.</p>
-                <a href="/sales-system/pages/dashboard.php">Go to Dashboard</a>
+                <a href="/pages/dashboard.php">Go to Dashboard</a>
              </div>');
     }
 }

@@ -15,7 +15,7 @@ if ($editId) {
     $s->execute([$editId]);
     $editItem = $s->fetch();
     if (!$editItem) {
-        header('Location: /sales-system/pages/stock/index.php');
+        header('Location: /pages/stock/index.php');
         exit;
     }
 }
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                  VALUES (?, ?, ?, ?, ?)"
             )->execute([$business_id, $product_name, $quantity, $unit_price, $user['id']]);
         }
-        header('Location: /sales-system/pages/stock/index.php?saved=1');
+        header('Location: /pages/stock/index.php?saved=1');
         exit;
     }
 }
@@ -55,7 +55,7 @@ require __DIR__ . '/../../includes/header.php';
         <h2 class="mb-0"><?= $editId ? 'Edit Stock' : 'Add Stock' ?></h2>
         <p class="text-muted mb-0"><?= $editId ? 'Update stock details.' : 'Add new stock for a business.' ?></p>
     </div>
-    <a href="/sales-system/pages/stock/index.php" class="btn btn-outline-secondary">← Back</a>
+    <a href="/pages/stock/index.php" class="btn btn-outline-secondary">← Back</a>
 </div>
 
 <?php if (!empty($errors)): ?>

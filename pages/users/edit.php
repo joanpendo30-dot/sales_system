@@ -9,7 +9,7 @@ $errors = [];
 // Validate user id
 $userId = isset($_GET['id']) && is_numeric($_GET['id']) ? (int)$_GET['id'] : 0;
 if (!$userId) {
-    header('Location: /sales-system/pages/users/index.php');
+    header('Location: /pages/users/index.php');
     exit;
 }
 
@@ -18,7 +18,7 @@ $stmt = $db->prepare("SELECT * FROM users WHERE id = ? LIMIT 1");
 $stmt->execute([$userId]);
 $editUser = $stmt->fetch();
 if (!$editUser) {
-    header('Location: /sales-system/pages/users/index.php');
+    header('Location: /pages/users/index.php');
     exit;
 }
 
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $role, $business_id ?: null, $is_active, $userId
             ]);
         }
-        header('Location: /sales-system/pages/users/index.php?saved=1');
+        header('Location: /pages/users/index.php?saved=1');
         exit;
     }
 }
@@ -90,7 +90,7 @@ require __DIR__ . '/../../includes/header.php';
         <h2 class="mb-0">Edit User</h2>
         <p class="text-muted mb-0">Update user details and business assignment.</p>
     </div>
-    <a href="/sales-system/pages/users/index.php" class="btn btn-outline-secondary">← Back</a>
+    <a href="/pages/users/index.php" class="btn btn-outline-secondary">← Back</a>
 </div>
 
 <?php if (!empty($errors)): ?>

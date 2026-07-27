@@ -175,21 +175,21 @@ function navActive($needle) {
     <div class="sidebar-brand">Sales System</div>
 
     <div class="sidebar-nav flex-grow-1">
-        <a class="nav-link <?= navActive('dashboard') ?>" href="/sales-system/pages/dashboard.php">
+        <a class="nav-link <?= navActive('dashboard') ?>" href="/pages/dashboard.php">
             Dashboard
         </a>
-        <a class="nav-link <?= navActive('orders') ?>" href="/sales-system/pages/orders/index.php">
+        <a class="nav-link <?= navActive('orders') ?>" href="/pages/orders/index.php">
             Orders
         </a>
-        <a class="nav-link <?= navActive('report') ?>" href="/sales-system/pages/orders/report.php">
+        <a class="nav-link <?= navActive('report') ?>" href="/pages/orders/report.php">
             Reports
         </a>
 
         <?php if ($currentUser['role'] === 'admin'): ?>
-        <a class="nav-link <?= navActive('stock') ?>" href="/sales-system/pages/stock/index.php">
+        <a class="nav-link <?= navActive('stock') ?>" href="/pages/stock/index.php">
             Stock
         </a>
-        <a class="nav-link <?= navActive('users') ?>" href="/sales-system/pages/users/index.php">
+        <a class="nav-link <?= navActive('users') ?>" href="/pages/users/index.php">
             Users
         </a>
         <?php endif; ?>
@@ -204,7 +204,7 @@ function navActive($needle) {
                 <?= htmlspecialchars($currentUser['role']) ?>
             </span>
         </div>
-        <a href="/sales-system/auth/logout.php" class="btn btn-outline-light btn-sm w-100">Logout</a>
+        <a href="/auth/logout.php" class="btn btn-outline-light btn-sm w-100">Logout</a>
     </div>
 </nav>
 

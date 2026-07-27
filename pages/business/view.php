@@ -7,7 +7,7 @@ $db = getDB();
 // Validate business id
 $bizId = isset($_GET['id']) && is_numeric($_GET['id']) ? (int)$_GET['id'] : 0;
 if (!$bizId) {
-    header('Location: /sales-system/pages/dashboard.php');
+    header('Location: /pages/dashboard.php');
     exit;
 }
 
@@ -16,7 +16,7 @@ $bizStmt = $db->prepare("SELECT * FROM businesses WHERE id = ? LIMIT 1");
 $bizStmt->execute([$bizId]);
 $business = $bizStmt->fetch();
 if (!$business) {
-    header('Location: /sales-system/pages/dashboard.php');
+    header('Location: /pages/dashboard.php');
     exit;
 }
 
@@ -58,7 +58,7 @@ require __DIR__ . '/../../includes/header.php';
 <!-- PAGE HEADER -->
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
-        <a href="/sales-system/pages/dashboard.php"
+        <a href="/pages/dashboard.php"
            class="text-muted small text-decoration-none">← Back to Dashboard</a>
         <h2 class="mb-0 mt-1">🏢 <?= htmlspecialchars($business['name']) ?></h2>
         <p class="text-muted mb-0">Sales report and orders for this business.</p>

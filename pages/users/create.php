@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $full_name, $username, $email, $hash,
             $role, $business_id ?: null, $is_active
         ]);
-        header('Location: /sales-system/pages/users/index.php?saved=1');
+        header('Location: /pages/users/index.php?saved=1');
         exit;
     }
 }
@@ -47,7 +47,7 @@ require __DIR__ . '/../../includes/header.php';
         <h2 class="mb-0">Create User</h2>
         <p class="text-muted mb-0">Add a new user and assign them to a business.</p>
     </div>
-    <a href="/sales-system/pages/users/index.php" class="btn btn-outline-secondary">← Back</a>
+    <a href="/pages/users/index.php" class="btn btn-outline-secondary">← Back</a>
 </div>
 
 <?php if (!empty($errors)): ?>

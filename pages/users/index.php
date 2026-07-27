@@ -9,11 +9,11 @@ if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     $deleteId = (int)$_GET['delete'];
     $me       = currentUser();
     if ($deleteId === (int)$me['id']) {
-        header('Location: /sales-system/pages/users/index.php?error=self');
+        header('Location: /pages/users/index.php?error=self');
         exit;
     }
     $db->prepare("DELETE FROM users WHERE id = ?")->execute([$deleteId]);
-    header('Location: /sales-system/pages/users/index.php?deleted=1');
+    header('Location: /pages/users/index.php?deleted=1');
     exit;
 }
 
@@ -49,7 +49,7 @@ require __DIR__ . '/../../includes/header.php';
 
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h2 class="mb-0">Users</h2>
-    <a href="/sales-system/pages/users/create.php" class="btn btn-primary">+ New User</a>
+    <a href="/pages/users/create.php" class="btn btn-primary">+ New User</a>
 </div>
 
 <?php if (isset($_GET['deleted'])): ?>
@@ -87,7 +87,7 @@ require __DIR__ . '/../../includes/header.php';
                 <?php endforeach; ?>
             </select>
             <?php if ($filterBusinessId): ?>
-                <a href="/sales-system/pages/users/index.php" class="btn btn-sm btn-outline-secondary">
+                <a href="/pages/users/index.php" class="btn btn-sm btn-outline-secondary">
                     Clear Filter
                 </a>
             <?php endif; ?>
@@ -135,7 +135,7 @@ require __DIR__ . '/../../includes/header.php';
                 </td>
                 <td><?= $u['last_login'] ? htmlspecialchars($u['last_login']) : '—' ?></td>
                 <td>
-                    <a href="/sales-system/pages/users/edit.php?id=<?= (int)$u['id'] ?>"
+                    <a href="/pages/users/edit.php?id=<?= (int)$u['id'] ?>"
                        class="btn btn-sm btn-outline-primary">Edit</a>
                     <a href="?delete=<?= (int)$u['id'] ?>&business_id=<?= $filterBusinessId ?>"
                        class="btn btn-sm btn-outline-danger"

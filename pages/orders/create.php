@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             adjustStockSold($db, $business_id, $product_name, $quantity);
         }
 
-        header('Location: /sales-system/pages/orders/index.php?saved=1');
+        header('Location: /pages/orders/index.php?saved=1');
         exit;
     }
 }
@@ -77,7 +77,7 @@ require __DIR__ . '/../../includes/header.php';
         <h2 class="mb-0">New Order</h2>
         <p class="text-muted mb-0">Create a new sales order.</p>
     </div>
-    <a href="/sales-system/pages/orders/index.php" class="btn btn-outline-secondary">← Back</a>
+    <a href="/pages/orders/index.php" class="btn btn-outline-secondary">← Back</a>
 </div>
 
 <?php if (!empty($errors)): ?>

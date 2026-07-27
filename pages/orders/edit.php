@@ -9,7 +9,7 @@ $errors = [];
 
 $orderId = isset($_GET['id']) && is_numeric($_GET['id']) ? (int)$_GET['id'] : 0;
 if (!$orderId) {
-    header('Location: /sales-system/pages/orders/index.php');
+    header('Location: /pages/orders/index.php');
     exit;
 }
 
@@ -17,13 +17,13 @@ $stmt = $db->prepare("SELECT * FROM orders WHERE id = ? LIMIT 1");
 $stmt->execute([$orderId]);
 $order = $stmt->fetch();
 if (!$order) {
-    header('Location: /sales-system/pages/orders/index.php');
+    header('Location: /pages/orders/index.php');
     exit;
 }
 
 // Restrict regular users to only edit orders from their own business
 if ($user['role'] !== 'admin' && (int)$order['business_id'] !== (int)$user['business_id']) {
-    header('Location: /sales-system/pages/orders/index.php');
+    header('Location: /pages/orders/index.php');
     exit;
 }
 
@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             adjustStockSold($db, $business_id, $product_name, $newContribution);
         }
 
-        header('Location: /sales-system/pages/orders/index.php?updated=1');
+        header('Location: /pages/orders/index.php?updated=1');
         exit;
     }
 }
@@ -105,7 +105,7 @@ require __DIR__ . '/../../includes/header.php';
         <h2 class="mb-0">Edit Order</h2>
         <p class="text-muted mb-0">Update order #<?= (int)$order['id'] ?>.</p>
     </div>
-    <a href="/sales-system/pages/orders/index.php" class="btn btn-outline-secondary">← Back</a>
+    <a href="/pages/orders/index.php" class="btn btn-outline-secondary">← Back</a>
 </div>
 
 <?php if (!empty($errors)): ?>

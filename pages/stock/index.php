@@ -7,7 +7,7 @@ $db = getDB();
 // Handle delete
 if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     $db->prepare("DELETE FROM stock WHERE id = ?")->execute([$_GET['delete']]);
-    header('Location: /sales-system/pages/stock/index.php?deleted=1');
+    header('Location: /pages/stock/index.php?deleted=1');
     exit;
 }
 
@@ -48,7 +48,7 @@ require __DIR__ . '/../../includes/header.php';
         <h2 class="mb-0">Stock Management</h2>
         <p class="text-muted mb-0">Manage product stock for all businesses.</p>
     </div>
-    <a href="/sales-system/pages/stock/add.php" class="btn btn-primary">+ Add Stock</a>
+    <a href="/pages/stock/add.php" class="btn btn-primary">+ Add Stock</a>
 </div>
 
 <?php if (isset($_GET['deleted'])): ?>
@@ -80,7 +80,7 @@ require __DIR__ . '/../../includes/header.php';
                 <?php endforeach; ?>
             </select>
             <?php if ($filterBusinessId): ?>
-                <a href="/sales-system/pages/stock/index.php" class="btn btn-sm btn-outline-secondary">
+                <a href="/pages/stock/index.php" class="btn btn-sm btn-outline-secondary">
                     Clear Filter
                 </a>
             <?php endif; ?>
@@ -150,7 +150,7 @@ require __DIR__ . '/../../includes/header.php';
                         <td><?= htmlspecialchars($s['added_by_name'] ?? '—') ?></td>
                         <td><?= date('M j, Y', strtotime($s['created_at'])) ?></td>
                         <td class="text-center">
-                            <a href="/sales-system/pages/stock/add.php?edit=<?= (int)$s['id'] ?>"
+                            <a href="/pages/stock/add.php?edit=<?= (int)$s['id'] ?>"
                                class="btn btn-sm btn-outline-primary">Edit</a>
                             <a href="?delete=<?= (int)$s['id'] ?>&business_id=<?= $filterBusinessId ?>"
                                class="btn btn-sm btn-outline-danger"
