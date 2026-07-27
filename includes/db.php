@@ -1,7 +1,5 @@
 <?php
-// db.php — PostgreSQL version (Render)
-// Reads connection info from the DATABASE_URL environment variable
-// instead of hardcoded localhost/root credentials.
+// includes/db.php — PostgreSQL version (Render)
 
 function getDB(): PDO {
     static $pdo = null;
